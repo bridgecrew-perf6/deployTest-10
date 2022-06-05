@@ -2,6 +2,9 @@ const express = require('express')
 const path = require('path');
 const ejs = require('ejs');
 const app = express()
+require('dotenv').config()
+
+const port = (process.env.PORT || 3200)
 
 app.set('view engine', 'ejs')
 
@@ -25,4 +28,4 @@ app.get('/home', (req, res) => {
 app.use(express.static(path.join(__dirname, 'public')))
 
 
-app.listen(3000, () => console.log('server port 3000'))
+app.listen(port, () => console.log(`server port ${port}`))
